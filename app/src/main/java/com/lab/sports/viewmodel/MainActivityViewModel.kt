@@ -20,10 +20,10 @@ class MainActivityViewModel : ViewModel() {
         get() = field
 
     private val parentJob = Job()
-    private val carolineContext: CoroutineContext
+    private val coroutineContext: CoroutineContext
         get() = parentJob + Dispatchers.Default
 
-    private val scope = CoroutineScope(carolineContext)
+    private val scope = CoroutineScope(coroutineContext)
     private val serviceApi = ServiceGenerator().createService(ServiceAPIs::class.java)
 
     fun searchForTeamByName(teamName: String) {
